@@ -33,8 +33,14 @@ body::after {
   border-radius: 4px;
 }
 
+#texto-buscar {
+  margin-left: 3px;
+  color: #fff;
+}
+
 .navbar-brand {
   padding-top: 0;
+  padding-left: 20px;
 }
 
 .nav-item {
@@ -46,14 +52,14 @@ body::after {
   height: 65vh;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: left;
   margin-left: 130px;
 }
 
 .texto-lateral {
   color: #fff;
   font-weight: 700;
-  font-size: 42px;
+  font-size: 46px;
   
 }
 
@@ -70,7 +76,14 @@ body::after {
 }
 
 footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  margin-top: 50px;
   width: 100%;
   background-color: #ff4141;
-  border-top: 2px solid #ebebeb;
+  padding-top: 10px;
+
 }
