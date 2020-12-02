@@ -1,0 +1,24 @@
+.navbar {
+  max-width: 80%;
+  top: 40px;
+  right: 10%;
+  left: 10%;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: #ff4141;
+  border-radius: 4px;
+}
+
+#texto-buscar {
+  margin-left: 3px;
+  color: #fff;
+}
+
+.navbar-brand {
+  padding-top: 0;
+  padding-left: 20px;
+}
+
+.nav-item {
+  margin-left: 20px;
+}
