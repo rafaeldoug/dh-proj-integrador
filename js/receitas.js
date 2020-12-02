@@ -1,5 +1,9 @@
 
+let searchForm = document.querySelector('.js-search-form');
+let searchInput = document.querySelector('.js-search-form input');
 let cardColumns = document.querySelector('.js-card-columns');
+
+let listMeals = [];
 
 searchForm.addEventListener('submit', (ev) => {
   ev.preventDefault();

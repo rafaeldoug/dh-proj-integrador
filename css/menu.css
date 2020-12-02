@@ -22,3 +22,11 @@
 .nav-item {
   margin-left: 20px;
 }
+
+.js-dropdown-menu input {
+  cursor: pointer;
+}
+
+.js-dropdown-menu input:focus {
+  cursor: pointer;
+}
