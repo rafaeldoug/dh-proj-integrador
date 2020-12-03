@@ -30,6 +30,6 @@ function makeHomeCards(card) {
     });
 }
 
-makeHomeCards(card1);
-makeHomeCards(card2);
-makeHomeCards(card3);
+// makeHomeCards(card1);
+// makeHomeCards(card2);
+// makeHomeCards(card3);

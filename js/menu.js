@@ -11,13 +11,13 @@ function makeDropdownMenu() {
     .then(response => response.json())
     .then(data => {
       let id = 0;
-      
+
       for (let i = 0; i < data.meals.length; i++) {
         id++;
-        var category = data.meals[i].strCategory;
+        var categoria = data.meals[i].strCategory;
 
         dropdownMenu.innerHTML += `
-        <a id="option-${id}" class="dropdown-item" href="#" onclick="makeByCategoryList('${category}')">${data.meals[i].strCategory}</a>
+        <a id="option-${id}" class="dropdown-item" onclick="makeByCategoryList('${categoria}')">${data.meals[i].strCategory}</a>
         `;
       }
 
@@ -29,7 +29,11 @@ function makeDropdownMenu() {
 }
 
 function makeByCategoryList(categoria) {
-  // window.location.replace('http://127.0.0.1:5500/pages/receitas-categoria.html');
+  let currentLocation = window.location;
+
+  if (currentLocation.pathname != '/pages/receitas-categoria.html') {
+    window.location = `${window.location.origin}/pages/receitas-categoria.html`;
+  }
 
   fetch(`https://themealdb.p.rapidapi.com/filter.php?c=${categoria}`, {
     "method": "GET",
