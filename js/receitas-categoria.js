@@ -1,18 +1,16 @@
-let searchForm = document.querySelector('.js-search-form');
-let searchInput = document.querySelector('.js-search-form input');
-let cardColumns = document.querySelector('.js-card-columns');
+// let searchForm = document.querySelector('.js-search-form');
+// let searchInput = document.querySelector('.js-search-form input');
+// let cardColumns = document.querySelector('.js-card-columns');
+let titulo = document.querySelector('.js-titulo');
 
-searchForm.addEventListener('submit', (ev) => {
-  ev.preventDefault();
+function makeByCategoryList(categoria) {
+  let currentLocation = window.location;
 
-  let meal = searchInput.value;
+  if (currentLocation.pathname != '/pages/receitas-categoria.html') {
+    window.location = `${window.location.origin}/pages/receitas-categoria.html`;
+  }
 
-  makeRecipesList(meal);
-
-});
-
-function makeRecipesList(meal) {
-  fetch(`https://themealdb.p.rapidapi.com/search.php?s=${meal}`, {
+  fetch(`https://themealdb.p.rapidapi.com/filter.php?c=${categoria}`, {
     "method": "GET",
     "headers": {
       "x-rapidapi-key": "7864672b4emsha51fa4ea4a0606cp106a24jsnc1bc1fbef9b3",
@@ -30,8 +28,6 @@ function makeRecipesList(meal) {
                 <img src="${data.meals[i].strMealThumb}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">${data.meals[i].strMeal}</h5>
-                  <p class="card-text">Categoria: ${data.meals[i].strCategory}</p>
-                  <p class="card-text">Area: ${data.meals[i].strArea}</p>
                 </div>
               </div>
             `;
@@ -41,3 +37,8 @@ function makeRecipesList(meal) {
       console.error(err);
     });
 }
+
+let categoria = sessionStorage.getItem('categoria');
+titulo.innerHTML = categoria;
+
+makeByCategoryList(categoria);
