@@ -21,10 +21,3 @@ h2 {
   position: relative;
   bottom: 0;
 }
-
-#img-logo {
-  max-width: 48px;
-  max-height: 48px;
-  width: auto;
-  height: auto;
-}
