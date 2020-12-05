@@ -7,8 +7,6 @@ const URL_LIST = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
 var listIngredient = [];
 var listItens = [];
 
-document.cookie = "SameSite=Lax; Secure";
-
 async function makeByCategoryList(categoria) {
   let currentLocation = window.location;
 
@@ -43,10 +41,6 @@ async function addCard() {
       .then((data) => {
         listIngredient.push(data.meals[0]);
 
-        //var recipe = await filto(listItens[0][i].idMeal);
-        //await ingredientes(listItens[0][i].idMeal);
-        //onClick="ingredientes(${listItens[0][i].idMeal})"
-        //onClick="clic(${listItens[0][i].idMeal})
         cardColumns.innerHTML += `
         <div class="card" data-toggle="modal" data-target="#ExemploModalCentralizado${
           listItens[0][i].idMeal
@@ -223,22 +217,6 @@ function ajustaListaIngredientes(id) {
       filhos[i].innerHTML = filhos[i].innerHTML.trim().substr(2);
     }
   }
-
-  /*
-  p = document.getElementById("meal-video" + id);
-  filhos = p.childNodes;
-  for (let i = 0; i < filhos.length; i++) {
-    if (filhos[i].tagName == "P" && filhos[i].innerHTML != "") {
-      let youtube = filhos[i].innerHTML.substring(
-        filhos[i].innerHTML.indexOf("=") + 1
-      );
-
-      filhos[
-        i
-      ].innerHTML = `<iframe id="Video${listItens[0][i].idMeal}" class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/${youtube}"></iframe>`;
-    }
-  }
-*/
 }
 
 let categoria = sessionStorage.getItem("categoria");
