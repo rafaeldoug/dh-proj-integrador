@@ -2,7 +2,7 @@ let searchForm = document.querySelector(".js-search-form");
 let searchInput = document.querySelector(".js-search-form input");
 let cardColumns = document.querySelector(".js-card-columns");
 
-const URL_LIST = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
+const URL_LIST1 = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
 var listIngredient = [];
 var listItens = [];
 
@@ -10,12 +10,14 @@ searchForm.addEventListener("submit", (ev) => {
   ev.preventDefault();
 
   let meal = searchInput.value;
-
-  makeRecipesList(meal);
+  if (meal.trim() != "") {
+    listItens = [];
+    makeRecipesList(meal);
+  }
 });
 
 async function makeRecipesList(meal) {
-  fetch(`https://themealdb.p.rapidapi.com/search.php?s=${meal}`, {
+  await fetch(`https://themealdb.p.rapidapi.com/search.php?s=${meal}`, {
     method: "GET",
     headers: {
       "x-rapidapi-key": "7864672b4emsha51fa4ea4a0606cp106a24jsnc1bc1fbef9b3",
@@ -26,69 +28,50 @@ async function makeRecipesList(meal) {
     .then((data) => {
       cardColumns.innerHTML = "";
 
-      listItens.push(data.meals);
+      listItens.push(data);
     })
     .catch((err) => {
       console.error(err);
     });
 
   await addCard();
-  /*
-    .then((response) => response.json())
-    .then((data) => {
-      cardColumns.innerHTML = "";
-
-      for (let i = 0; i < data.meals.length; i++) {
-        cardColumns.innerHTML += `
-              <div class="card">
-                <img src="${data.meals[i].strMealThumb}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">${data.meals[i].strMeal}</h5>
-                  <p class="card-text">Categoria: ${data.meals[i].strCategory}</p>
-                  <p class="card-text">Area: ${data.meals[i].strArea}</p>
-                 
-
-                </div>
-              </div>
-            `;
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-    */
 }
 
 async function addCard() {
-  for (let i = 0; i < listItens[0].length; i++) {
-    await fetch(URL_LIST + listItens[0][i].idMeal)
+  if (listItens === undefined) return;
+  if (listItens[0].meals === null) return;
+
+  for (let i = 0; i < listItens[0].meals.length; i++) {
+    await fetch(URL_LIST1 + listItens[0].meals[i].idMeal)
       .then((response) => response.json())
       .then((data) => {
         listIngredient.push(data.meals[0]);
 
         cardColumns.innerHTML += `
         <div class="card" data-toggle="modal" data-target="#ExemploModalCentralizado${
-          listItens[0][i].idMeal
-        }" onClick="ajustaListaIngredientes(${listItens[0][i].idMeal})">
+          listItens[0].meals[i].idMeal
+        }" onClick="ajustaListaIngredientes(${listItens[0].meals[i].idMeal})">
           <img src="${
-            listItens[0][i].strMealThumb
+            listItens[0].meals[i].strMealThumb
           }" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">${listItens[0][i].strMeal}</h5>
-            <p class="card-text">Categoria: ${listItens[0][i].strCategory}</p>
-            <p class="card-text">Area: ${listItens[0][i].strArea}</p>
+            <h5 class="card-title">${listItens[0].meals[i].strMeal}</h5>
+            <p class="card-text">Categoria: ${
+              listItens[0].meals[i].strCategory
+            }</p>
+            <p class="card-text">Area: ${listItens[0].meals[i].strArea}</p>
 
           </div>
           
           <!-- Modal -->
           <div class="modal fade" id="ExemploModalCentralizado${
-            listItens[0][i].idMeal
+            listItens[0].meals[i].idMeal
           }" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="TituloModalCentralizado">${
-                    listItens[0][i].strMeal
+                    listItens[0].meals[i].strMeal
                   }</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                     <span aria-hidden="true">&times;</span>
@@ -97,7 +80,7 @@ async function addCard() {
                 <div class="modal-body">
                   <div class="ingredients-list">
                     <p><b>Você vai precisar</b></p>
-                    <ul id ="list-ingredients${listItens[0][i].idMeal}"> 
+                    <ul id ="list-ingredients${listItens[0].meals[i].idMeal}"> 
                     <li>${
                       listIngredient[i].strMeasure1 +
                       " - " +
