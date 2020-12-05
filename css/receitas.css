@@ -2,7 +2,6 @@
   max-width: 80%;
   padding-top: 5rem;
   min-height: 100vh;
-  
 }
 
 .js-titulo {
@@ -21,4 +20,11 @@ h2 {
   width: 100%;
   position: relative;
   bottom: 0;
+}
+
+#img-logo {
+  max-width: 48px;
+  max-height: 48px;
+  width: auto;
+  height: auto;
 }
