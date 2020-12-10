@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/menu.css">
   <link rel="stylesheet" href="../css/receitas.css">
+  <link rel="stylesheet" href="../css/contato.css">
   <title>Receitas | Agora Sou Chef - DH</title>
 </head>
 
@@ -77,11 +78,18 @@
   </header>
 
   <main class="container js-main-container">
-    <h1 class="js-titulo"></h1>
-    <h2>Aqui estão as receitas!</h2>
-    <div class="card-columns js-card-columns">
-      <!-- aqui serão renderizados os cards com as receitas encontradas -->
-    </div>
+    <h1 class="contato-titulo">Entre em contato conosco!</h1>
+    <form class="form-contato">
+      <label for="nome">Nome</label><br>
+      <input type="text" id=nome><br>
+      <label for="email">E-mail</label><br>
+      <input type="email" id=email><br>
+      <label for="telefone">Telefone</label><br>
+      <input type="tel" id=telefone><br>
+      <label for="mensagem">Deixe sua mensagem!</label><br>
+      <textarea name="mensagem" id="mensagem" cols="30" rows="10"></textarea><br>
+      <button type="submit">Enviar</button>
+    </form>
   </main>
 
   <footer id="footer-receitas">
@@ -101,6 +109,8 @@
   <script src="../js/menu.js"></script>
   <script src="../js/receitas.js"></script>
   <script src="../js/receitas-categoria.js"></script>
+  <script src="../js/contato.js"></script>
+
 </body>
 
 </html>
