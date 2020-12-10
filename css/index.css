@@ -49,6 +49,27 @@ body::after {
   margin-bottom: 15px;
 }
 
+.texto-sobre-container {
+  max-width: 75%;
+  margin-top: 60px;
+  background-color: #fff;
+  padding: 20px 40px;
+  border-radius: 8px;
+}
+
+.texto-sobre-container h2{
+  text-align: center;
+}
+
+.texto-sobre-container p{
+  
+}
+
+.texto-sobre-container img{
+  width: 24%;
+  margin: 0 auto;
+}
+
 @media screen and (max-width: 1024px) {
   .texto-lateral {
     font-size: 2.2rem;
@@ -68,6 +89,7 @@ body::after {
     padding-left: 2.5rem;
        
   }
+
 }
 
 @media screen and (max-width: 280px) {
