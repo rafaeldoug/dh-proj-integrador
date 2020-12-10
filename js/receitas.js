@@ -2,14 +2,17 @@ let searchForm = document.querySelector('.js-search-form');
 let searchInput = document.querySelector('.js-search-form input');
 let cardColumns = document.querySelector('.js-card-columns');
 
-searchForm.addEventListener('submit', (ev) => {
-  ev.preventDefault();
 
-  let meal = searchInput.value;
-
-  makeRecipesList(meal);
-
-});
+if (window.location.pathname === "/pages/receitas.html") {
+  searchForm.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+  
+    let meal = searchInput.value;
+  
+    makeRecipesList(meal);
+  
+  });
+}
 
 function makeRecipesList(meal) {
   fetch(`https://themealdb.p.rapidapi.com/search.php?s=${meal}`, {
@@ -36,9 +39,25 @@ function makeRecipesList(meal) {
               </div>
             `;
       }
+      handleCardStyle();
     })
     .catch(err => {
       console.error(err);
     });
+}
+
+function handleCardStyle() {
+  let cards = document.querySelectorAll('.card');
+
+  for (let card of cards) {
+    card.onmouseover = function () {
+      this.style.borderBottom = "3px solid rgba(255,65,65,1";
+      this.style.borderTop = "3px solid rgba(255,65,65,1";
+    }
+
+    card.onmouseout = function () {
+      this.style.border = "1px solid rgba(0,0,0,.125";
+    }
+  }
 }
 

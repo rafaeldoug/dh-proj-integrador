@@ -2,14 +2,7 @@ let card1 = document.querySelector(".js-card-1");
 let card2 = document.querySelector(".js-card-2");
 let card3 = document.querySelector(".js-card-3");
 
-let cards = document.querySelectorAll('.card');
-
 const URL_LISTI = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
-
-// for (let i = 0; i < cards.length; i++) {
-//   card[i].addEventListener('mouseover', card.classList.add('escala-aumenta'));
-//   card[i].addEventListener('mouseout', card.classList.add('escala-diminui'));
-// }
 
 async function makeHomeCards(card) {
   // let i = 0;
@@ -198,7 +191,9 @@ function ajustaListaIngredientes(id) {
   }
 }
 
-function handleCardsStyle(cards) {
+function handleCardStyle() {
+  let cards = document.querySelectorAll('.card');
+
   for (let card of cards) {
     card.onmouseover = function () {
       this.style.borderBottom = "3px solid rgba(255,65,65,1";
@@ -206,13 +201,12 @@ function handleCardsStyle(cards) {
     }
 
     card.onmouseout = function () {
-      this.style.borderBottom = "1px solid rgba(0,0,0,.125";
-      this.style.borderTop = "1px solid rgba(0,0,0,.125";
+      this.style.border = "1px solid rgba(0,0,0,.125";
     }
   }
 }
 
-handleCardsStyle(cards);
+handleCardStyle();
 
 makeHomeCards(card1);
 makeHomeCards(card2);
