@@ -226,12 +226,12 @@ function handleCardStyle() {
 
   for (let card of cards) {
     card.onmouseover = function () {
-      this.style.borderBottom = "3px solid rgba(255,65,65,1";
-      this.style.borderTop = "3px solid rgba(255,65,65,1";
+      this.style.borderBottom = "3px solid rgba(255,65,65,1)";
+      this.style.borderTop = "3px solid rgba(255,65,65,1)";
     }
 
     card.onmouseout = function () {
-      this.style.border = "1px solid rgba(0,0,0,.125";
+      this.style.border = "1px solid rgba(0,0,0,.125)";
     }
   }
 }
