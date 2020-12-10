@@ -1,6 +1,3 @@
-// let searchForm = document.querySelector('.js-search-form');
-// let searchInput = document.querySelector('.js-search-form input');
-// let cardColumns = document.querySelector('.js-card-columns');
 let titulo = document.querySelector(".js-titulo");
 
 const URL_LIST = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
@@ -191,11 +188,13 @@ async function addCard() {
 
         </div>
       `;
+      
       })
       .catch((err) => {
         console.error(err);
       });
   }
+  handleCardStyle();
 }
 
 function ajustaListaIngredientes(id) {
@@ -221,5 +220,20 @@ function ajustaListaIngredientes(id) {
 
 let categoria = sessionStorage.getItem("categoria");
 titulo.innerHTML = categoria;
+
+function handleCardStyle() {
+  let cards = document.querySelectorAll('.card');
+
+  for (let card of cards) {
+    card.onmouseover = function () {
+      this.style.borderBottom = "3px solid rgba(255,65,65,1";
+      this.style.borderTop = "3px solid rgba(255,65,65,1";
+    }
+
+    card.onmouseout = function () {
+      this.style.border = "1px solid rgba(0,0,0,.125";
+    }
+  }
+}
 
 makeByCategoryList(categoria);
