@@ -1,6 +1,3 @@
-// let searchForm = document.querySelector('.js-search-form');
-// let searchInput = document.querySelector('.js-search-form input');
-// let cardColumns = document.querySelector('.js-card-columns');
 let titulo = document.querySelector(".js-titulo");
 
 const URL_LIST = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";

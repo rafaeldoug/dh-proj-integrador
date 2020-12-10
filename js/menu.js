@@ -1,7 +1,5 @@
 let dropdownMenu = document.querySelector('.js-dropdown-menu');
 
-let cat = '';
-
 function makeDropdownMenu() {
   fetch("https://themealdb.p.rapidapi.com/list.php?c=list", {
     "method": "GET",
@@ -16,7 +14,6 @@ function makeDropdownMenu() {
 
       for (let i = 0; i < data.meals.length; i++) {
         id++;
-        var categoria = data.meals[i].strCategory;
 
         dropdownMenu.innerHTML += `
         <a id="option-${id}" class="dropdown-item" onclick="getCategoria('#option-${id}')">${data.meals[i].strCategory}</a>

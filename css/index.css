@@ -49,6 +49,39 @@ body::after {
   margin-bottom: 15px;
 }
 
+.escala-aumenta {
+  /* animation: grow 0.3s ease-in-out forwards; */
+  transform: scale(1.1);
+}
+
+.escala-diminui {
+  /* animation: shrink 0.3s ease-in-out forwards; */
+  transform: scale(1);
+}
+
+/* @keyframes grow {
+  from {
+    transform: scale(1.0);
+  }
+
+  to {
+    transform: scale(1.1);
+    z-index: 50;
+  }
+}
+
+@keyframes shrink {
+  from {
+    transform: scale(1.1);
+  }
+
+  to {
+    transform: scale(1.0);
+    z-index: 0;
+  }
+} */
+
+
 @media screen and (max-width: 600px) {
   .texto-lateral {
     font-size: 2rem;

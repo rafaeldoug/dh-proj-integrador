@@ -2,10 +2,17 @@ let card1 = document.querySelector(".js-card-1");
 let card2 = document.querySelector(".js-card-2");
 let card3 = document.querySelector(".js-card-3");
 
+let cards = document.querySelectorAll('.card');
+
 const URL_LISTI = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
 
+// for (let i = 0; i < cards.length; i++) {
+//   card[i].addEventListener('mouseover', card.classList.add('escala-aumenta'));
+//   card[i].addEventListener('mouseout', card.classList.add('escala-diminui'));
+// }
+
 async function makeHomeCards(card) {
-  let i = 0;
+  // let i = 0;
   let listIngredient = [];
 
   let meal = {
@@ -39,26 +46,22 @@ async function makeHomeCards(card) {
       listIngredient.push(data.meals[0]);
 
       card.innerHTML = `
-          <img src="${
-            meal.thumb
-          }" class="card-img-top" alt="Foto da receita de ${meal.name}"
-          data-toggle="modal" data-target="#ExemploModalCentralizado${
-            meal.id
-          }" onClick="ajustaListaIngredientes(${meal.id})">
+          <img src="${meal.thumb
+        }" class="card-img-top" alt="Foto da receita de ${meal.name}"
+          data-toggle="modal" data-target="#ExemploModalCentralizado${meal.id
+        }" onClick="ajustaListaIngredientes(${meal.id})">
           <div class="card-body">
             <h5 class="card-title">${meal.name}</h5>
           </div>
         
           <!-- Modal -->
-          <div class="modal fade" id="ExemploModalCentralizado${
-            meal.id
-          }" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+          <div class="modal fade" id="ExemploModalCentralizado${meal.id
+        }" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="TituloModalCentralizado">${
-                    meal.name
-                  }</h5>
+                  <h5 class="modal-title" id="TituloModalCentralizado">${meal.name
+        }</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -67,107 +70,87 @@ async function makeHomeCards(card) {
                   <div class="ingredients-list">
                     <p><b>Você vai precisar</b></p>
                     <ul id ="list-ingredients${meal.id}"> 
-                    <li>${
-                      listIngredient[0].strMeasure1 +
-                      " - " +
-                      listIngredient[0].strIngredient1
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure2 +
-                      " - " +
-                      listIngredient[0].strIngredient2
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure3 +
-                      " - " +
-                      listIngredient[0].strIngredient3
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure4 +
-                      " - " +
-                      listIngredient[0].strIngredient4
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure5 +
-                      " - " +
-                      listIngredient[0].strIngredient5
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure6 +
-                      " - " +
-                      listIngredient[0].strIngredient6
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure7 +
-                      " - " +
-                      listIngredient[0].strIngredient7
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure8 +
-                      " - " +
-                      listIngredient[0].strIngredient8
-                    }</li>
+                    <li>${listIngredient[0].strMeasure1 +
+        " - " +
+        listIngredient[0].strIngredient1
+        }</li>
+                    <li>${listIngredient[0].strMeasure2 +
+        " - " +
+        listIngredient[0].strIngredient2
+        }</li>
+                    <li>${listIngredient[0].strMeasure3 +
+        " - " +
+        listIngredient[0].strIngredient3
+        }</li>
+                    <li>${listIngredient[0].strMeasure4 +
+        " - " +
+        listIngredient[0].strIngredient4
+        }</li>
+                    <li>${listIngredient[0].strMeasure5 +
+        " - " +
+        listIngredient[0].strIngredient5
+        }</li>
+                    <li>${listIngredient[0].strMeasure6 +
+        " - " +
+        listIngredient[0].strIngredient6
+        }</li>
+                    <li>${listIngredient[0].strMeasure7 +
+        " - " +
+        listIngredient[0].strIngredient7
+        }</li>
+                    <li>${listIngredient[0].strMeasure8 +
+        " - " +
+        listIngredient[0].strIngredient8
+        }</li>
 
-                    <li>${
-                      listIngredient[0].strMeasure9 +
-                      " - " +
-                      listIngredient[0].strIngredient9
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure10 +
-                      " - " +
-                      listIngredient[0].strIngredient10
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure11 +
-                      " - " +
-                      listIngredient[0].strIngredient11
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure12 +
-                      " - " +
-                      listIngredient[0].strIngredient12
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure13 +
-                      " - " +
-                      listIngredient[0].strIngredient13
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure14 +
-                      " - " +
-                      listIngredient[0].strIngredient14
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure15 +
-                      " - " +
-                      listIngredient[0].strIngredient15
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure16 +
-                      " - " +
-                      listIngredient[0].strIngredient16
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure17 +
-                      " - " +
-                      listIngredient[0].strIngredient17
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure18 +
-                      " - " +
-                      listIngredient[0].strIngredient18
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure19 +
-                      " - " +
-                      listIngredient[0].strIngredient19
-                    }</li>
-                    <li>${
-                      listIngredient[0].strMeasure20 +
-                      " - " +
-                      listIngredient[0].strIngredient20
-                    }</li>
+                    <li>${listIngredient[0].strMeasure9 +
+        " - " +
+        listIngredient[0].strIngredient9
+        }</li>
+                    <li>${listIngredient[0].strMeasure10 +
+        " - " +
+        listIngredient[0].strIngredient10
+        }</li>
+                    <li>${listIngredient[0].strMeasure11 +
+        " - " +
+        listIngredient[0].strIngredient11
+        }</li>
+                    <li>${listIngredient[0].strMeasure12 +
+        " - " +
+        listIngredient[0].strIngredient12
+        }</li>
+                    <li>${listIngredient[0].strMeasure13 +
+        " - " +
+        listIngredient[0].strIngredient13
+        }</li>
+                    <li>${listIngredient[0].strMeasure14 +
+        " - " +
+        listIngredient[0].strIngredient14
+        }</li>
+                    <li>${listIngredient[0].strMeasure15 +
+        " - " +
+        listIngredient[0].strIngredient15
+        }</li>
+                    <li>${listIngredient[0].strMeasure16 +
+        " - " +
+        listIngredient[0].strIngredient16
+        }</li>
+                    <li>${listIngredient[0].strMeasure17 +
+        " - " +
+        listIngredient[0].strIngredient17
+        }</li>
+                    <li>${listIngredient[0].strMeasure18 +
+        " - " +
+        listIngredient[0].strIngredient18
+        }</li>
+                    <li>${listIngredient[0].strMeasure19 +
+        " - " +
+        listIngredient[0].strIngredient19
+        }</li>
+                    <li>${listIngredient[0].strMeasure20 +
+        " - " +
+        listIngredient[0].strIngredient20
+        }</li>
                     </ul>
                   </div>
                   <p><b>Modo de preparo</b></p>
@@ -175,9 +158,8 @@ async function makeHomeCards(card) {
 
                   <div id="link-youtube">
                   <p><b>Assistir receita</b></p>
-                  <a href="${
-                    listIngredient[0].strYoutube
-                  }"target="_blank"><img id="img-logo" src="../img/youtube-logo.png"></a></div>
+                  <a href="${listIngredient[0].strYoutube
+        }"target="_blank"><img id="img-logo" src="../img/youtube-logo.png"></a></div>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -188,6 +170,7 @@ async function makeHomeCards(card) {
 
         </div>
       `;
+
     })
     .catch((err) => {
       console.error(err);
@@ -214,6 +197,22 @@ function ajustaListaIngredientes(id) {
     }
   }
 }
+
+function handleCardsStyle(cards) {
+  for (let card of cards) {
+    card.onmouseover = function () {
+      this.style.borderBottom = "3px solid rgba(255,65,65,1";
+      this.style.borderTop = "3px solid rgba(255,65,65,1";
+    }
+
+    card.onmouseout = function () {
+      this.style.borderBottom = "1px solid rgba(0,0,0,.125";
+      this.style.borderTop = "1px solid rgba(0,0,0,.125";
+    }
+  }
+}
+
+handleCardsStyle(cards);
 
 makeHomeCards(card1);
 makeHomeCards(card2);
