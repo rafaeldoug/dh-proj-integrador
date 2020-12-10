@@ -196,12 +196,11 @@ function handleCardStyle() {
 
   for (let card of cards) {
     card.onmouseover = function () {
-      this.style.borderBottom = "3px solid rgba(255,65,65,1)";
-      this.style.borderTop = "3px solid rgba(255,65,65,1)";
+      this.classList.add('js-card-style-over');
     }
-
+    
     card.onmouseout = function () {
-      this.style.border = "1px solid rgba(0,0,0,.125)";
+      this.classList.remove('js-card-style-over');
     }
   }
 }

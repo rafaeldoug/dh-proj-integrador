@@ -6,15 +6,17 @@ const URL_LIST1 = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
 var listIngredient = [];
 var listItens = [];
 
-searchForm.addEventListener("submit", (ev) => {
-  ev.preventDefault();
+if (window.location.pathname === '/pages/receitas.html') {
+  searchForm.addEventListener("submit", (ev) => {
+    ev.preventDefault();
 
-  let meal = searchInput.value;
-  if (meal.trim() != "") {
-    listItens = [];
-    makeRecipesList(meal);
-  }
-});
+    let meal = searchInput.value;
+    if (meal.trim() != "") {
+      listItens = [];
+      makeRecipesList(meal);
+    }
+  });
+}
 
 async function makeRecipesList(meal) {
   await fetch(`https://themealdb.p.rapidapi.com/search.php?s=${meal}`, {
@@ -234,12 +236,11 @@ function handleCardStyle() {
 
   for (let card of cards) {
     card.onmouseover = function () {
-      this.style.borderBottom = "3px solid rgba(255,65,65,1)";
-      this.style.borderTop = "3px solid rgba(255,65,65,1)";
+      this.classList.add('js-card-style-over');
     }
-
+    
     card.onmouseout = function () {
-      this.style.border = "1px solid rgba(0,0,0,.125)";
+      this.classList.remove('js-card-style-over');
     }
   }
 }

@@ -70,9 +70,9 @@ body::after {
   }
 }
 
-@media screen and (max-width: 426px) {
+@media screen and (max-width: 280px) {
   .texto-lateral {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin: 0px;
   }
 
@@ -81,7 +81,7 @@ body::after {
   }
 
   .texto-lateral-container {
-    width: 200%;
+    width: 100%;
     height: 120px;
     display: flex;
     align-items: center;
