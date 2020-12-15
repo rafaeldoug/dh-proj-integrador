@@ -1,12 +1,4 @@
-html {
-  position: relative;
-  height: 100%;
-}
 
-body {
-  position: relative;
-  height: 100%;
-}
 
 body::after {
     content: "";
@@ -47,10 +39,6 @@ body::after {
     margin: 0 auto;
   }
 
-  footer {
-    position: absolute;
-    bottom: 0;
-  }
 
   @media screen and (max-width: 320px) {
     .texto-sobre-container img{
