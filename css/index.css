@@ -50,6 +50,7 @@ body::after {
 }
 
 @media screen and (max-width: 1024px) {
+  
   .texto-lateral {
     font-size: 2.2rem;
     margin-left: 50px;
@@ -61,12 +62,24 @@ body::after {
 
   .texto-lateral-container {
     width: 100%;
-    height: 290px;
+    padding-top: 50px;
+    height: 210px;
     display: flex;
     align-items: center;
     justify-content: left;
     padding-left: 2.5rem;
        
+  }
+}
+
+@media screen and (max-width: 430px) {
+  #bg-cooking {
+    display: none;
+  }
+
+  .texto-lateral {
+    font-size: 1.6rem;
+    margin: 0px;
   }
 }
 
