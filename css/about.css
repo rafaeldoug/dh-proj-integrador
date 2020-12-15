@@ -40,3 +40,21 @@ body::after {
     width: 24%;
     margin: 0 auto;
   }
+
+  @media screen and (max-width: 320px) {
+    .texto-sobre-container img{
+      display: block;
+      width: 50%;
+      margin: 0 auto;
+    }
+  
+  }
+
+  @media screen and (min-width: 321px) and (max-width: 430px) {
+    .texto-sobre-container img{
+      display: block;
+      width: 40%;
+      margin: 0 auto;
+    }
+  
+  }
