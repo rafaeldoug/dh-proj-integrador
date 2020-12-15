@@ -1,14 +1,18 @@
 body {
-  font-family: 'Mina', sans-serif;
+  font-family: "Mina", sans-serif;
   background-color: #ebebeb;
-  
+}
+
+main {
+  margin-bottom: 2rem;
 }
 
 footer {
   position: relative;
+  left: 0;
+  right: 0;
   bottom: 0;
   background-color: #ff4141;
-  margin-top: 30px;
 }
 
 footer .container {
@@ -24,4 +28,16 @@ footer .container {
 .texto-footer {
   padding: 15px;
   margin: 0;
+}
+
+#img-logo {
+  max-width: 48px;
+  max-height: 48px;
+  width: auto;
+  height: auto;
+}
+
+.js-card-style-over {
+  border-bottom: 3px solid rgba(255,65,65,1);
+  border-top: 3px solid rgba(255,65,65,1);
 }
